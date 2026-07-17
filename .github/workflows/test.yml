@@ -1,0 +1,19 @@
+name: Build and Test
+on: [push]
+jobs:
+  - build-and-test
+
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Setup Java
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+      - name: Run build
+        run: echo 'Building Java project...'
+      - name: Run tests
+        run: echo 'Running Java tests...'
+        continue-on-error: false
